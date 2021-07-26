@@ -1,5 +1,5 @@
 from wtforms import Form, StringField, TextAreaField, SelectField, IntegerField
-from test import NotionAPISupport
+from APINote import NotionAPISupport
 class Forms(Form):
     choices_lidt = [
         'Zarys projekty', "Część napisana", "Projekt na Githubie", "Testy programu", "Zakończony"

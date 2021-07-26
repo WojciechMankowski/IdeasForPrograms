@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from test import NotionAPISupport
+from APINote import NotionAPISupport
 from Forms import Forms, OpinionsForms
 
 app = Flask(__name__)
