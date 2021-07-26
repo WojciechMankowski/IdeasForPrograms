@@ -1,0 +1,14 @@
+<form method="POST">
+    {{ form.csrf_token }}
+    {{form.title.labell}}
+     {{form.title}}
+    <br>
+
+{{ form.rating.label }}
+    {{ form.rating }}
+    <br>
+    {{ form.comment.label }}
+    {{ form.comment }}
+    <br>
+
+    <input type="submit" value="Dodaj komentarz">
