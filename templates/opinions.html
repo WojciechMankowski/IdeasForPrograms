@@ -1,14 +1,33 @@
-<form method="POST">
-    {{ form.csrf_token }}
-    {{form.title.labell}}
-     {{form.title}}
-    <br>
+{% extends "base.html" %}
+{% block content %}
 
-{{ form.rating.label }}
-    {{ form.rating }}
-    <br>
-    {{ form.comment.label }}
-    {{ form.comment }}
-    <br>
+<div id="instr">
+    Dodawanie komentarzy do projektów
+    <ol>
 
-    <input type="submit" value="Dodaj komentarz">
+        <li>Wybierz pomysł;</li>
+        <li>Oceń ten pomysł na skali od 0 do 10;</li>
+        <li>Napisz co o tym projekcie myśliszcz</li>
+
+    </ol>
+</div>
+<div class="form">
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{form.title.label}}
+        {{form.title}}
+        <br>
+
+        {{ form.rating.label }}
+        {{ form.rating }}
+        <br>
+        {{ form.comment.label }}
+        {{ form.comment }}
+        <br>
+
+        <input type="submit" value="Dodaj" class="btn_add">
+        <input type="reset" value="Wyczyść" class="btn_reset">
+
+    </form>
+</div>
+{% endblock %}

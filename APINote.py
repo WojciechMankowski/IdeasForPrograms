@@ -1,6 +1,4 @@
 from notion.client import NotionClient
-from datetime import datetime, timezone
-from zoneinfo import ZoneInfo
 from dotenv import load_dotenv
 from os import environ
 
@@ -19,21 +17,31 @@ class NotionAPISupport:
         self.collection_view = self.client.get_collection_view(url)
         rows = self.collection_view.collection.get_rows()
         for item in rows:
+            if item.Comment == '?':
+                Comment = None
+            else:
+                Comment = item.Comment
+            if item.Opis == '?': Opis = None
+            else:
+                Opis = item.Opis
+            # print(item.Status)
             ideas[item.title] = {
-                'Status': item.Status, 'Link GitHub': item.Link_GitHub,
-                'Rating': item.Rating, "Komentarze": item.Comment
+                'Status': item.Status, "Opis": Opis, 'Link GitHub': item.Link_GitHub,
+                'Rating': item.Rating, "Komentarze": Comment
 
             }
         return ideas
 
-    def AddingANewLine(selfRating, title: str,status: str,link: str,opis: str):
+    def AddingANewLine(self, title: str,status: str,link: str, opis: str, rating: int):
         row = self.collection_view.collection.add_row()
         row.title = title
         row.Status = status
         row.Link_GitHub = link
         row.Opis = opis
+        row.Rating = rating
+        row.NumberOfRatings = 1
 
-    def AssessmentOfChanges(self, rating, title):
+    def AssessmentOfChanges(self, rating: float, title):
         cv = self.client.get_collection_view(self.url)
         CV = cv.collection.get_rows(search =title)
         for item in CV:
@@ -44,11 +52,10 @@ class NotionAPISupport:
         cv = self.client.get_collection_view(self.url)
         CV = cv.collection.get_rows(search=title)
         for item in CV:
-            print(item.Comment)
+            item.Comment = item.Comment + "," + comment
     def DowlandTitle(self):
         self.collection_view = self.client.get_collection_view(self.url)
         rows = self.collection_view.collection.get_rows()
-
         listTitle = []
         for item in rows:
             listTitle.append(item.title)
