@@ -20,6 +20,9 @@ def chacking(name_project, status, link, opis, rating):
     return False
 class OpinionsForms(Form):
     choices_list = NotionAPISupport().DowlandTitle()
+    print(type(choices_list))
+    if type(choices_list) == "NoneType":
+        choices_list: [""]
     title = SelectField('Wybierz pomysł: ', choices=choices_list)
     rating = IntegerField("Ocena projektu od 0 do 10: ", [NumberRange(min=0, max=10, message="Nie odpowiednia liczba została wpisana")] )
     comment = StringField('Komentarz do pomysłu: ')
