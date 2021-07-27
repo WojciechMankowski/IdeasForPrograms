@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/Menu.css') }}" type="text/css">
+  <title>Document</title>
+</head>
+
+<body>
+ 
+  <button class="hamburger">
+    <span class="hamburger__box">
+      <span class="hamburger__inner"></span>
+    </span>
+  </button>
+  <div class="navigation">
+    <ul class="navigation__list">
+      <li class="navigation__item"><a href="">HOME</a></li>
+      <li class="navigation__item"><a href="">Dodanie pomysłu</a></li>
+      <li class="navigation__item"><a href="">Dodanie kometarza do projektu</a></li>
+      <!-- <li class="navigation__item"><a href="">Sit</a></li> -->
+    </ul>
+  </div>
+  <div class="logo">
+    <span>
+      Pomysły na programy
+    </span>
+    </div>
+   
+  
+  <div class="box_center" id="box_center">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+
+  
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>

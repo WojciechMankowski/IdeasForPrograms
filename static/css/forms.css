@@ -1,0 +1,31 @@
+#name_project,
+#status,
+#opis,
+#title,
+#rating,
+#comment {
+    width: 200px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 4px;
+}
+
+#opis {
+    height: 50px;
+}
+
+#rating {
+    width: 25px;
+}
+
+.btn_add,
+.btn_reset {
+    margin-top: 15px;
+    width: 80px;
+    border: #B3940B solid 1px;
+    background-color: transparent;
+}
+
+.btn_add {
+    margin-left: 25px;
+}

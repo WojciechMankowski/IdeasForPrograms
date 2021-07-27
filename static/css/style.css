@@ -1,0 +1,29 @@
+.box_center
+{   width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: rgb(255, 216, 41);
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    flex-direction:column;
+    flex-wrap: wrap;
+    flex-flow: flex-start;
+}
+.tabel{
+    width: 90%;  /* bez wysokości */
+}
+.tabel table, td {
+    border: 1px solid black;
+   border-collapse: collapse;
+}
+#instr, .form{
+   
+   align-self:  center;
+}
+.form p{
+    color: red;
+    font-size: 18px
+}

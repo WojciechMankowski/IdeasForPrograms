@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="instr" >
+    <h3>Dodawanie pomysł na projekt</h3>
+    <ol>
+        <li>Nadaj tytuł swojemu projektowi</li>
+        <li>Wybiecz odpowiedni status</li>
+        <li>Jeśli masz link do repezutirium do projektu dodaj go</li>
+        <li>Opisz swój projekt</li>
+        <li>Sam oceń swój projekt</li>
+    </ol>
+</div>
+<div class="form">
+    {% if form.errors %}
+    {% for error in form.errors %}
+    <p>
+        {{error}}
+    </p>
+    {% endfor %}
+    {% endif %}
+    <form method="POST">
+        {{ form.csrf_token }}
+    
+        {{ form.name_project.label }}
+        {{ form.name_project }}
+        <br>
+        {{ form.status.label }}
+        {{ form.status }}
+        <br>
+        {{ form.link.label }}
+        {{ form.link }}
+        <br>
+        {{ form.opis.label }}
+        {{ form.opis }}
+        <br>
+    
+        {{ form.rating.label }}
+        {{ form.rating }}
+        <br>
+        <input type="submit" value="Dodaj" class="btn_add">
+        <input type="reset" value="Wyczyść" class="btn_reset">
+    </form>
+</div>
+{% endblock %}

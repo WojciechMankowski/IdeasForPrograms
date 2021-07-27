@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="tabel">
+    <table>
+        <tr>
+            <td>Tytuł projektu</td>
+            <td>Opis</td>
+            <td>Punkty</td>
+            <td>Status</td>
+            <td>Link</td>
+        </tr>
+        {% for item in lista %}
+        <tr>
+            <td>{{item}}</td>
+            <td>{{ideas[item]['Opis']}}</td>
+            <td>{{ideas[item]['Rating']}}</td>
+            <td>{{ideas[item]['Status']}}</td>
+            <td>
+                {% if ideas[item]['Link GitHub'] != None%}
+                    <a href="{{ideas[item]['Link GitHub']}}" target="_blank" rel="noopener noreferrer">Link do projektu</a>
+                {%else%}
+                    <p>Brak projektu na GitHub-ie</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
