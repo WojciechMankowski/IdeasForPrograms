@@ -9,13 +9,9 @@ class NotionAPISupport:
         token_v2 = environ.get('515241d6dc439732fcb611fb8311e0ffbe1ecf306459462df73873a4fd360d916a099b18f9fb6667f0123130aeae8ae7dad1e08461b7cf4fa7186a03bf03be6fe8429fb7e6f0b7a19f3436888c3f')
         self.url =\
             "https://www.notion.so/b3d441ef28844fdc92ca3109b7d57577?v=fe38a190be464f31a2ccbf117645699d"
-        self.client = ""
-        self.collection_view = ""
-        try:
-            self.client = NotionClient(token_v2=token_v2)
-            self.collection_view = self.client.get_collection_view(self.url)
-        except ProxyError:
-            pass
+        self.client = NotionClient(token_v2=token_v2)
+        self.collection_view = self.client.get_collection_view(self.url)
+
 
     def GetInformation(self):
         ideas = {}
