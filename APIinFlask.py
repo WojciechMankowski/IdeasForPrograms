@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
 from APINote import NotionAPISupport
 from Forms import Forms, OpinionsForms, chacking
-
+import sys
+path = '/home/wojtek92/mysite'
+if path not in sys.path:
+   sys.path.insert(0, path)
 app = Flask(__name__)
 api = NotionAPISupport()
 
@@ -44,4 +47,4 @@ def opinions():
         api.AddComment(comment=comment, title=title)
     return render_template('opinions.html', form=form)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1',port=8000,debug=True)
